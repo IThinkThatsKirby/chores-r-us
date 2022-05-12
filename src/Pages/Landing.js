@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero"
+import Section from "../Components/Section"
 
 
 export default function Landing() {
@@ -8,12 +9,11 @@ export default function Landing() {
     <div>
       <NavBar />
       <Hero /> 
-      {/* <Section />
-      <AboutUs />
+      <Section />
+      {/* <AboutUs />
       <Testimonials />
       <ContactUs />
-      <Footer />
-       */}
+      <Footer /> */}
     </div>
   );
 }

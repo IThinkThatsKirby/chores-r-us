@@ -1,0 +1,16 @@
+.sectionGridContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+.sectionGridItem {
+    background-color: #f2f0f1;
+    text-align: center;
+    padding: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px !important;
+}
