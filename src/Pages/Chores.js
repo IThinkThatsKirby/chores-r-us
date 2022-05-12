@@ -1,5 +1,11 @@
-import React from 'react';
+import React from "react";
+import NavBar from "../Components/NavBar";
 
-export default function CHORES() {
-	return <div>CHORES</div>;
+export default function Chores() {
+  return (
+    <div className="">
+      <NavBar />
+      Chores
+    </div>
+  );
 }
