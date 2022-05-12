@@ -41,3 +41,8 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.NavLinks {
+  text-decoration: none;
+  color: black;
+}
