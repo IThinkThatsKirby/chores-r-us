@@ -1,5 +1,11 @@
-import React from 'react';
+import React from "react";
+import NavBar from "../Components/NavBar";
 
 export default function Landing() {
-	return <div>Landing</div>;
+  return (
+    <div>
+      <NavBar />
+      Landing page
+    </div>
+  );
 }
