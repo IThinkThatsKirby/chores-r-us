@@ -1,9 +1,7 @@
-// import logo from './logo.svg';
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Chores from "../src/Pages/Chores.js";
 import Landing from "./Pages/Landing.js";
-// import { Router } from 'express';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 function App() {
