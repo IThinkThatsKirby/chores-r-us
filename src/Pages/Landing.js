@@ -1,14 +1,11 @@
 import React from "react";
-import NavBar from "../Components/NavBar";
-import Hero from "../Components/Hero"
-import Section from "../Components/Section"
-
+import Hero from "../Components/Hero";
+import Section from "../Components/Section";
 
 export default function Landing() {
   return (
     <div>
-      <NavBar />
-      <Hero /> 
+      <Hero />
       <Section />
       {/* <AboutUs />
       <Testimonials />

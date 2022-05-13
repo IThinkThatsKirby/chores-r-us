@@ -12,9 +12,16 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { Link } from "react-router-dom";
 
-const pages = ["Manage Chores", "View Chores", "View Pokemans"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Manage Chores", "View Chores", "Rewards"];
+const settings = [
+  "Profile",
+  "Account",
+  "Dashboard",
+  "Logout",
+  "This thing doesn't work yet :)",
+];
 
 const NavBar = () => {
   const AppName = "Chores-R-Us";
@@ -91,7 +98,9 @@ const NavBar = () => {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" color="black">
-                    {page}
+                    <Link to={`/${page}`} className="NavLinks">
+                      {page}
+                    </Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -123,7 +132,9 @@ const NavBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "black", display: "block" }}
               >
-                {page}
+                <Link to={`/${page}`} className="NavLinks">
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -151,6 +162,8 @@ const NavBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
+                //Menu from user profle
+                //Change {setting} to a Link later on once user profile code exists
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center" color="black">
                     {setting}

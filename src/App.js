@@ -1,8 +1,11 @@
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-import Chores from "../src/Pages/Chores.js";
+import ViewChores from "./Pages/ViewChores.js";
+import EditChores from "./Pages/EditChores";
 import Landing from "./Pages/Landing.js";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import NavBar from "./Components/NavBar";
+import Rewards from "./Pages/Rewards";
 
 function App() {
   const darkTheme = createTheme({
@@ -26,12 +29,14 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={darkTheme}>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="chores" element={<Chores />} />
+          <Route path="/Manage%20Chores" element={<EditChores />} />
+          <Route path="/View%20Chores" element={<ViewChores />} />
+          <Route path="/Rewards" element={<Rewards />} />
         </Routes>
       </ThemeProvider>
-      <h1>HOWDY WORLD!!</h1>
     </div>
   );
 }
