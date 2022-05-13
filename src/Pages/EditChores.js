@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react';
+import NavBar from '../Components/NavBar';
 
 export default function EditChores() {
   return (
     <div>
-      <h1>Edit Chores Page</h1>
+      <NavBar />
+      <h1>Edit Chores</h1>
     </div>
   );
 }

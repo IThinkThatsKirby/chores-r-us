@@ -1,5 +1,6 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+
+import { Routes, Route } from 'react-router-dom';
 import ViewChores from './Pages/ViewChores.js';
 import EditChores from './Pages/EditChores';
 import Landing from './Pages/Landing.js';
@@ -7,6 +8,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import NavBar from './Components/NavBar';
 import Rewards from './Pages/Rewards';
 import CssBaseline from '@mui/material/CssBaseline';
+
 
 function App() {
 	const darkTheme = createTheme({
@@ -44,7 +46,6 @@ function App() {
 		<ThemeProvider theme={customDarkTheme}>
 			<CssBaseline enableColorScheme />
 			<main className="app">
-				<NavBar />
 				<Routes>
 					<Route path="/" element={<Landing />} />
 					<Route path="/Manage%20Chores" element={<EditChores />} />
