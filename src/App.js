@@ -1,28 +1,28 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import ViewChores from "./Pages/ViewChores.js";
-import EditChores from "./Pages/EditChores";
-import Landing from "./Pages/Landing.js";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import NavBar from "./Components/NavBar";
-import Rewards from "./Pages/Rewards";
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import ViewChores from './Pages/ViewChores.js';
+import EditChores from './Pages/EditChores';
+import Landing from './Pages/Landing.js';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import NavBar from './Components/NavBar';
+import Rewards from './Pages/Rewards';
 
 function App() {
   const darkTheme = createTheme({
     palette: {
-      type: "dark",
+      type: 'dark',
       primary: {
-        main: "#aa69ff",
-        contrastText: "#000000",
+        main: '#aa69ff',
+        contrastText: '#000000',
       },
       secondary: {
-        main: "#f50057",
+        main: '#f50057',
       },
       error: {
-        main: "#ff0000",
+        main: '#ff0000',
       },
       text: {
-        primary: "rgba(255,255,255,0.69)",
+        primary: 'rgba(255,255,255,0.69)',
       },
     },
   });

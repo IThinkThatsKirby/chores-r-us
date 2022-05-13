@@ -1,7 +1,7 @@
-import React from "react";
-import Hero from "../Components/Hero";
-import Section from "../Components/Section";
-import NavBar from "../Components/NavBar";
+import React from 'react';
+import Hero from '../Components/Hero';
+import Section from '../Components/Section';
+import NavBar from '../Components/NavBar';
 
 export default function Landing() {
   return (
