@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ViewChores from "./Pages/ViewChores.js";
 import EditChores from "./Pages/EditChores";
 import Landing from "./Pages/Landing.js";
@@ -29,7 +29,6 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={darkTheme}>
-        <NavBar />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/Manage%20Chores" element={<EditChores />} />
