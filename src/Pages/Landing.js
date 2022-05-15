@@ -2,6 +2,8 @@ import React from 'react';
 import Hero from '../Components/Hero';
 import Section from '../Components/Section';
 import NavBar from '../Components/NavBar';
+import AboutUs from '../Components/AboutUs';
+import Testimonials from '../Components/Testimonials';
 
 export default function Landing() {
   return (
@@ -9,9 +11,9 @@ export default function Landing() {
       <NavBar />
       <Hero />
       <Section />
-      {/* <AboutUs />
+      <AboutUs />
       <Testimonials />
-      <ContactUs />
+     {/* <ContactUs />
       <Footer /> */}
     </div>
   );

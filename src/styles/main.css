@@ -1,0 +1,92 @@
+/* Hero CSS */
+.heroBox {
+    width: 100%;
+    display: flex;
+    min-Height: 600px;
+    align-items: center;
+    justify-Content: center;
+}
+
+.gridContainer {
+    display: flex;
+    align-items: center;
+    max-width: 1300px;
+    padding: 50px;
+}
+
+.title {
+    padding-bottom: 30px;
+   }
+   
+.subtitle {
+       opacity: 0.4;
+       padding-bottom: 30px;
+   }
+
+
+.largeImage {
+    width: 100%;
+}
+
+.heroButton {
+    border-radius: 5px;
+}
+
+/* Section CSS */
+
+.sectionGridContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+.sectionGridItem {
+    background-color: rgb(67, 67, 67);
+    text-align: center;
+    border:1px solid black;
+    padding: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px !important;
+}
+
+/* About Us CSS */
+
+.aboutUsContainer {
+    width:100%;
+    display: flex;
+    min-height: 400px;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0px 50px 0px;
+}
+
+.aboutUsSubtitle {
+    opacity: 0.7;
+    padding-bottom: 30px;
+    font-size: 18px;
+}
+
+/* Testimonials */
+
+.testimonialCard {
+    display: flex;
+    padding: 10px;
+    min-height: 200px;
+    align-items: center;
+}
+
+.testimonialStatement {
+    padding-bottom: 25px;
+}
+
+.avatar {
+    margin-right: 10px;
+}
+
+.testimonialPosition {
+    font-size: 14px;
+    opacity: 0.6;
+}

@@ -6,7 +6,7 @@ import {
 	EngineeringOutlined,
 	PaidOutlined,
 } from '@mui/icons-material/';
-import '../styles/section.css'; // you kan now put these in themes for future toggle. please check :D
+import '../styles/main.css'; // you kan now put these in themes for future toggle. please check :D
 
 export default function Section() {
 	const sectionItems = [

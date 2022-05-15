@@ -1,6 +1,6 @@
 import { Grid, Typography, Button, Box } from '@mui/material';
 import React from 'react';
-import '../styles/hero.css';
+import '../styles/main.css';
 import { Link } from 'react-router-dom';
 
 function Hero() {
@@ -9,7 +9,7 @@ function Hero() {
 			<Grid container spacing={6} className='gridContainer'>
 				<Grid item xs={12} md={7}>
 					<Typography variant='h3' fontWeight={700} className='title'>
-						Let's revolutionize your chore list!
+						🧼 Let's revolutionize your chore list!
 					</Typography>
 					<Typography variant='h6' className='subtitle'>
 						Try our app, it'll help--- I think?
