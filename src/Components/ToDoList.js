@@ -1,5 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-export default ToDoList = () => {
-  return <div>This is the to-do list component</div>;
-};
+function ToDoList() {
+  return (
+    <div>ToDoList</div>
+  )
+}
+
+export default ToDoList
