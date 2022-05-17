@@ -1,9 +1,7 @@
 import React from 'react'
 
 function AddChores() {
-  return (
-
-  )
-}
+  return ()
+},
 
 export default AddChores

@@ -139,3 +139,7 @@ textArea {
 
 /* toDo List*/
 
+.todoListGridContainer {
+    display: flex;
+    flex-direction: column;
+}
