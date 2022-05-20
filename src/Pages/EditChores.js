@@ -1,12 +1,19 @@
 import React from 'react';
 import NavBar from '../Components/NavBar';
-import ToDoList from '../Components/ToDoList';
+// import ToDoList from '../Components/ToDoList';
+import TestComponent from '../Components/testComponent';
 
 export default function EditChores() {
   return (
     <div>
       <NavBar />
-      <h1>Edit Chores</h1>
+      <TestComponent />
     </div>
   );
 }
+
+//     "" ""    ""
+//     "" ""
+//     """""    ""
+//     "" ""    ""
+//     "" ""    ""

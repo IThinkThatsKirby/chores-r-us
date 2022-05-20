@@ -1,5 +1,22 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
-export default function testComponent() {
-	return <div>testComponent</div>;
+function TestComponent() {
+  let [users, setUsers] = useState({});
+
+  const getUsers = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/users');
+      const jsonData = await response.json();
+      console.log(jsonData);
+      setUsers(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 }
+
+export default TestComponent;
