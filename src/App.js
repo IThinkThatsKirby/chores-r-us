@@ -12,8 +12,8 @@ import { useState, useEffect } from 'react';
 
 function App() {
 	//State variables that will need to be used across the app
-	let [users, setUsers] = useState();
-	let [currentUser, setCurrentUser] = useState('Select User');
+	// let [users, setUsers] = useState();
+	// let [currentUser, setCurrentUser] = useState('Select User');
 
 	// const getUsers = async () => {
 	// 	try {
