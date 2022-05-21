@@ -9,25 +9,28 @@ import NavBar from './Components/NavBar';
 import Rewards from './Pages/Rewards';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState, useEffect } from 'react';
+// require('dotenv').config();
 
 function App() {
-	//State variables that will need to be used across the app
-	// let [users, setUsers] = useState();
-	// let [currentUser, setCurrentUser] = useState('Select User');
+	console.log(CHORES_API);
+	const CHORES_API = process.env.CHORES_API;
+	// State variables that will need to be used across the app
+	let [users, setUsers] = useState();
+	let [currentUser, setCurrentUser] = useState('Select User');
 
-	// const getUsers = async () => {
-	// 	try {
-	// 		const response = await fetch('chores-express.herokuapp.com/users');
-	// 		const jsonData = await response.json();
-	// 		setUsers(jsonData);
-	// 	} catch (error) {
-	// 		console.error(error.message);
-	// 	}
-	// };
-	// const handleUserSelect = (event) => {
-	// 	getUsers();
-	// 	setCurrentUser(event.target.value);
-	// };
+	const getUsers = async () => {
+		try {
+			const response = await fetch('chores-express.herokuapp.com/users');
+			const jsonData = await response.json();
+			setUsers(jsonData);
+		} catch (error) {
+			console.error(error.message);
+		}
+	};
+	const handleUserSelect = (event) => {
+		getUsers();
+		setCurrentUser(event.target.value);
+	};
 
 	const darkTheme = createTheme({
 		palette: {

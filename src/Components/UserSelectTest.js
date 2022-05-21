@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState, useEffect } from 'react';
+require('dotenv').config();
 const CHORES_API = process.env.CHORES_API;
 
 export default function UserSelect() {
@@ -13,7 +14,7 @@ export default function UserSelect() {
 
 	const getUsers = async () => {
 		try {
-			const response = await fetch(`${CHORES_API}/users`);
+			const response = await fetch(`'${CHORES_API}/users'`);
 			console.log(response);
 			const jsonData = await response.json();
 			setUsers(jsonData);

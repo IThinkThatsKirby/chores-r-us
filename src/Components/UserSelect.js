@@ -5,8 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState, useEffect } from 'react';
+// require('dotenv').config();
 const CHORES_API = process.env.CHORES_API;
-
+//
 export default function UserSelect(props) {
 	let [users, setUsers] = useState();
 	let [currentUser, setCurrentUser] = useState({});
@@ -15,7 +16,7 @@ export default function UserSelect(props) {
 
 	const getUsers = async () => {
 		try {
-			const response = await fetch(`${CHORES_API}/users`);
+			const response = await fetch('http://chores-express.herokuapp.com/users');
 			const jsonData = await response.json();
 			setUsers(jsonData);
 		} catch (error) {
@@ -28,7 +29,7 @@ export default function UserSelect(props) {
 	}, []);
 
 	const getUserChores = async () => {
-		await fetch(`${CHORES_API}/users/${currentUser}`, {
+		await fetch('http://chores-express.herokuapp.com/users/9', {
 			method: 'GET',
 			headers: {},
 		})
@@ -38,16 +39,15 @@ export default function UserSelect(props) {
 			.catch((err) => {
 				console.error(err);
 			});
-		// try {
-		// 	const response = await fetch(
-		// 		`chores-express.herokuapp.com/users/${currentUser.user_id}`
-		// 	);
-		// 	const jsonData = await response.json();
-		// 	setUserChores(jsonData);
-		// } catch (error) {
-		// 	console.error(error.message);
-		// }
 	};
+	// 	try {
+	// 		const response = await fetch('chores-express.herokuapp.com/users/9');
+	// 		const jsonData = await response.json();
+	// 		setUserChores(jsonData);
+	// 	} catch (error) {
+	// 		console.error(error.message);
+	// 	}
+	// };
 
 	const handleChange = (event) => {
 		setCurrentUser(event.target.value);
