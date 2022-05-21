@@ -61,25 +61,24 @@ function ToDoList() {
     },
   ];
 
-  return (
-    <Box sx={{ flexGrow: 1, minHeight: '400px', minWidth: '100%' }}>
-      <Grid container className="todoListGridContainer">
-        {choreItems.map((chores) => (
-          <Grid
-            item
-            xs={3}
-            md={3.5}
-            minHeight={100}
-            key={chores.chore_id}
-            className="toDoListGridItem"
-          >
-            {/* {chores.icon} */}
-            <Typography>{chores.chore_name}</Typography>
-            <Button className="ChoresButton"> Done? </Button>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+return (
+    <Box sx={{ flexGrow: 1, minHeight: '400px', minWidth:'100%'}}>
+    <Grid container className="todoListGridContainer">
+      {choreItems.map((chores) => (
+        <Grid
+          item
+          xs={3}
+          md={3.5}
+          minHeight={100}
+          key={chores.chore_id}
+          className="toDoListGridItem">
+          {/* {chores.icon} */}
+          <Typography>{chores.chore_name}</Typography>
+          <Button className="ChoresButton" variant='contained' color='primary'> Done? </Button>
+        </Grid>
+      ))}
+    </Grid>
+  </Box>
   );
 }
 

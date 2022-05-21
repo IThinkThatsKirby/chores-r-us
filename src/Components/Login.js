@@ -1,16 +1,8 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+import { Avatar, Button, CssBaseline, TextField, FormControlLabel, CheckBox, Link, Grid, Box, Typography, Container } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+
+import '../styles/main.css'
 
 
 function Copyright(props) {
@@ -18,7 +10,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://www.google.com/">
-        Your Website
+        Chores-R-Us
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -39,7 +31,7 @@ export default function SignIn() {
   };
 
   return (
-      <Container component="main" maxWidth="xs">
+      <Container component="logInContainer" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -55,7 +47,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="loginForm" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
