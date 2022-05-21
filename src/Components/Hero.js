@@ -4,7 +4,7 @@ import '../styles/main.css';
 import UserSelect from './UserSelect';
 // import { Link } from 'react-router-dom';
 
-function Hero() {
+function Hero(props) {
   return (
     <Box className="heroBox">
       <Grid container spacing={6} className="gridContainer">
@@ -24,7 +24,11 @@ function Hero() {
           >
             Sign Up
           </Button>
-          <UserSelect />
+          <UserSelect
+            setCurrentUser={props.setCurrentUser}
+            currentUser={props.currentUser}
+            setUserChores={props.setUserChores}
+          />
         </Grid>
         <Grid item xs={12} md={5}>
           <img

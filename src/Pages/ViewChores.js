@@ -1,11 +1,11 @@
 import React from 'react';
 import NavBar from '../Components/NavBar';
-import ToDoList from '../Components/ToDoList'
-export default function ViewChores() {
+import ToDoList from '../Components/ToDoList';
+export default function ViewChores(props) {
   return (
     <div className="viewChoresDiv">
       <NavBar />
-      <ToDoList />
+      <ToDoList userChores={props.userChores} />
     </div>
   );
 }

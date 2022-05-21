@@ -11,7 +11,11 @@ export default function Landing(props) {
   return (
     <div>
       <NavBar />
-      <Hero getUsers={props.getUsers} />
+      <Hero
+        setCurrentUser={props.setCurrentUser}
+        currentUser={props.currentUser}
+        setUserChores={props.setUserChores}
+      />
       <Section />
       <AboutUs />
       <Testimonials />
