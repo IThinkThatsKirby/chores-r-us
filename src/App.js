@@ -65,7 +65,7 @@ function App() {
 			<CssBaseline enableColorScheme />
 			<main className='app'>
 				<Routes>
-					<Route path='/' element={<Landing getUsers={getUsers} />} />
+					<Route path='/' element={<Landing />} />
 					<Route path='/Manage%20Chores' element={<EditChores />} />
 					<Route path='/View%20Chores' element={<ViewChores />} />
 					<Route path='/Rewards' element={<Rewards />} />

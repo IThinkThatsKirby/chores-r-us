@@ -15,7 +15,7 @@ export default function UserSelect(props) {
 
 	const getUsers = async () => {
 		try {
-			const response = await fetch('http://chores-express.herokuapp.com/users');
+			const response = await fetch(`${CHORES_API}/users`);
 			const jsonData = await response.json();
 			setUsers(jsonData);
 		} catch (error) {
@@ -28,7 +28,7 @@ export default function UserSelect(props) {
 	}, []);
 
 	const getUserChores = async () => {
-		await fetch(`${CHORES_API}/user/${currentUser}`, {
+		await fetch(`${CHORES_API}/users/${currentUser}`, {
 			method: 'GET',
 			headers: {},
 		})
