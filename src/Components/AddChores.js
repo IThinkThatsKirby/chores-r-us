@@ -2,13 +2,9 @@ import React, { useState } from 'react'
 import { Grid, TextField , Button} from '@mui/material'
 
 
-const defaultValues = {
-  chore_name: "",
-  chore_description: "",
-}
 
 function AddChores() {
-  const [formValues, setFormValues] = useState(defaultValues)
+  const [formValues, setFormValues] = useState("")
 
 
 const handleInputChange = (e) => {
@@ -21,7 +17,7 @@ setFormValues({
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  console.log(formValues); // only logging one letter
+  console.log(formValues);
 }
 
   return (
