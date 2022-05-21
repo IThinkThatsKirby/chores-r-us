@@ -7,15 +7,14 @@ import Select from '@mui/material/Select';
 import { useState, useEffect } from 'react';
 const CHORES_API = process.env.CHORES_API;
 
-export default function UserSelect(props) {
+export default function UserSelect() {
 	let [users, setUsers] = useState();
-	let [currentUser, setCurrentUser] = useState({});
-	let [userChores, setUserChores] = useState([]);
-	let [currentUserName, setCurrentUserName] = useState('');
+	let [currentUser, setCurrentUser] = useState('Select user');
 
 	const getUsers = async () => {
 		try {
-			const response = await fetch('http://chores-express.herokuapp.com/users');
+			const response = await fetch(`${CHORES_API}/users`);
+			console.log(response);
 			const jsonData = await response.json();
 			setUsers(jsonData);
 		} catch (error) {
@@ -24,50 +23,27 @@ export default function UserSelect(props) {
 	};
 	useEffect(() => {
 		getUsers();
-		getUserChores();
 	}, []);
 
-	const getUserChores = async () => {
-		await fetch(`${CHORES_API}/user/${currentUser}`, {
-			method: 'GET',
-			headers: {},
-		})
-			.then((response) => {
-				console.log(response);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-		// try {
-		// 	const response = await fetch(
-		// 		`chores-express.herokuapp.com/users/${currentUser.user_id}`
-		// 	);
-		// 	const jsonData = await response.json();
-		// 	setUserChores(jsonData);
-		// } catch (error) {
-		// 	console.error(error.message);
-		// }
-	};
-
 	const handleChange = (event) => {
+		getUsers();
 		setCurrentUser(event.target.value);
 	};
 
 	return (
 		<Box sx={{ minWidth: 120, maxWidth: 500 }} className='UserSelect'>
 			<FormControl fullWidth>
-				<InputLabel id=''>Select User</InputLabel>
+				<InputLabel id='demo-simple-select-label'>Select User</InputLabel>
 				<Select
 					labelId='demo-simple-select-label'
 					id='demo-simple-select'
-					value={currentUser.user_name}
+					value={currentUser}
 					label='User select'
 					onChange={handleChange}
 				>
 					{users?.map((user, i) => (
-						<MenuItem value={user} key={i}>
+						<MenuItem value={user.user_name} key={i}>
 							{user.user_name}
-							{console.log(currentUser)}
 						</MenuItem>
 					))}
 				</Select>
