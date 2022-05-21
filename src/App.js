@@ -15,19 +15,19 @@ function App() {
 	let [users, setUsers] = useState();
 	let [currentUser, setCurrentUser] = useState('Select User');
 
-	const getUsers = async () => {
-		try {
-			const response = await fetch('chores-express.herokuapp.com/users');
-			const jsonData = await response.json();
-			setUsers(jsonData);
-		} catch (error) {
-			console.error(error.message);
-		}
-	};
-	const handleUserSelect = (event) => {
-		getUsers();
-		setCurrentUser(event.target.value);
-	};
+	// const getUsers = async () => {
+	// 	try {
+	// 		const response = await fetch('chores-express.herokuapp.com/users');
+	// 		const jsonData = await response.json();
+	// 		setUsers(jsonData);
+	// 	} catch (error) {
+	// 		console.error(error.message);
+	// 	}
+	// };
+	// const handleUserSelect = (event) => {
+	// 	getUsers();
+	// 	setCurrentUser(event.target.value);
+	// };
 
 	const darkTheme = createTheme({
 		palette: {
