@@ -76,8 +76,8 @@ function ToDoList(props) {
             className="toDoListGridItem"
           >
             {/* {chores.icon} */}
-            <Typography>Chore name: {chores.chore_name}</Typography>
-            <Typography>
+            <Typography className="choreName">Chore name: {chores.chore_name}</Typography>
+            <Typography className="choreDesc">
               Chore description: {chores.chore_description}
             </Typography>
             <Button
