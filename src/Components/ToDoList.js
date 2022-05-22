@@ -1,8 +1,9 @@
 import React from 'react';
 import { Grid, Box, Typography, Button } from '@mui/material';
 import '../styles/main.css';
+import CreateChore from '../Modals/CreateChoreModal';
+import EditChore from '../Modals/EditChoreModal';
 function ToDoList(props) {
-  console.log(props.userChores);
   const choreItems = [...props.userChores];
   // const choreItems = [
   //   {
@@ -11,82 +12,74 @@ function ToDoList(props) {
   //     chore_description: null,
   //     completed: false,
   //     user_id: null,
-  //     confirmed: false,
-  //   },
-  //   {
-  //     chore_id: 5,
-  //     chore_name: 'Do homework',
-  //     chore_description: null,
-  //     completed: false,
-  //     user_id: null,
-  //     confirmed: false,
-  //   },
-  //   {
-  //     chore_id: 6,
-  //     chore_name: 'done did dimadome',
-  //     chore_description: null,
-  //     completed: false,
-  //     user_id: null,
-  //     confirmed: false,
-  //   },
-  //   {
-  //     chore_id: 7,
-  //     chore_name: 'done did testsetsetset',
-  //     chore_description: null,
-  //     completed: false,
-  //     user_id: null,
-  //     confirmed: false,
-  //   },
-  //   {
-  //     chore_id: 8,
-  //     chore_name: 'Vaccuum the driveway',
-  //     chore_description: null,
-  //     completed: false,
-  //     user_id: null,
-  //     confirmed: false,
-  //   },
-  //   {
-  //     chore_id: 9,
-  //     chore_name: 'Comb my teeth',
-  //     chore_description: null,
-  //     completed: false,
-  //     user_id: null,
-  //     confirmed: false,
-  //   },
-  //   {
-  //     chore_id: 10,
-  //     chore_name: 'Comb my shoes',
-  //     chore_description: null,
-  //     completed: false,
-  //     user_id: null,
-  //     confirmed: false,
-  //   },
-  // ];
+  //     confirmed: false } ]
+
+  const deleteUserChore = async (id) => {
+    try {
+      const deleteChore = await fetch(`http://localhost:5000/chores/${id}`, {
+        method: 'DELETE',
+      });
+      props.setUserChores(
+        props.userChores.filter((chore) => chore.chore_id !== id)
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const editUserChore = async (id) => {
+    try {
+      const editChore = await fetch(`http://localhost:5000/chores/${id}`, {
+        method: 'PUT',
+      });
+      props.setUserChores(
+        props.userChores.filter((chore) => chore.chore_id !== id)
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '400px', minWidth: '100%' }}>
+      <CreateChore />
       <Grid container className="todoListGridContainer">
-        {choreItems.map((chores) => (
+        {choreItems.map((chore) => (
           <Grid
             item
             xs={3}
             md={3.5}
             minHeight={100}
-            key={chores.chore_id}
+            key={chore.chore_id}
             className="toDoListGridItem"
           >
-            {/* {chores.icon} */}
-            <Typography className="choreName">Chore name: {chores.chore_name}</Typography>
-            <Typography className="choreDesc">
-              Chore description: {chores.chore_description}
+            {/* {chore.icon} */}
+            <Typography>Chore name: {chore.chore_name}</Typography>
+            <Typography>
+              Chore description: {chore.chore_description}
             </Typography>
+
             <Button
-              className="ChoresButton"
+              className="choreButton"
               variant="contained"
               color="primary"
+              onClick={() => {
+                // editUserChore(chore.chore_id);
+              }}
             >
               {' '}
-              Done?{' '}
+              {<EditChore />}{' '}
+            </Button>
+            <Button
+              className="choreButton"
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                deleteUserChore(chore.chore_id);
+              }}
+            >
+              {' '}
+              Completed/Delete{' '}
             </Button>
           </Grid>
         ))}

@@ -1,12 +1,12 @@
 import React from 'react';
 import NavBar from '../Components/NavBar';
-import AddChores from '../Components/AddChores'
+import AddChore from '../Components/AddChore';
 
 export default function EditChores() {
   return (
     <div>
       <NavBar />
-      <AddChores />
+      <AddChore />
     </div>
   );
 }

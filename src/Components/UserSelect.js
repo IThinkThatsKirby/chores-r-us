@@ -24,16 +24,6 @@ export default function UserSelect(props) {
   }, []);
 
   const getUserChores = async (currentUser) => {
-    // await fetch(`http://chores-express.herokuapp.com/users/${currentUser}`, {
-    //   method: 'GET',
-    //   headers: {},
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
     try {
       const response = await fetch(
         `http://chores-express.herokuapp.com/users/${currentUser.user_id}`

@@ -1,14 +1,14 @@
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
-import ViewChores from './Pages/ViewChores.js';
+import Chores from './Pages/Chores.js';
 import EditChores from './Pages/EditChores';
 import Landing from './Pages/Landing.js';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import NavBar from './Components/NavBar';
+// import NavBar from './Components/NavBar';
 import Rewards from './Pages/Rewards';
 import CssBaseline from '@mui/material/CssBaseline';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
   //State variables that will need to be used across the app
@@ -62,10 +62,12 @@ function App() {
               />
             }
           />
-          <Route path="/Manage%20Chores" element={<EditChores />} />
+          {/* <Route path="/Manage%20Chores" element={<EditChores />} /> */}
           <Route
-            path="/View%20Chores"
-            element={<ViewChores userChores={userChores} />}
+            path="/Chores"
+            element={
+              <Chores userChores={userChores} setUserChores={setUserChores} />
+            }
           />
           <Route path="/Rewards" element={<Rewards />} />
         </Routes>
