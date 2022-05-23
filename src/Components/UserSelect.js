@@ -7,8 +7,7 @@ import Select from '@mui/material/Select';
 import { useState, useEffect } from 'react';
 
 export default function UserSelect(props) {
-  console.log(props);
-  let [users, setUsers] = useState();
+  let [users, setUsers] = useState(null);
 
   const getUsers = async () => {
     try {
@@ -24,16 +23,6 @@ export default function UserSelect(props) {
   }, []);
 
   const getUserChores = async (currentUser) => {
-    // await fetch(`http://chores-express.herokuapp.com/users/${currentUser}`, {
-    //   method: 'GET',
-    //   headers: {},
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
     try {
       const response = await fetch(
         `http://chores-express.herokuapp.com/users/${currentUser.user_id}`

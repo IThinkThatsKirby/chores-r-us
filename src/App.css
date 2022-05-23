@@ -50,3 +50,7 @@ body {
 .UserSelect {
   padding-top: 5%;
 }
+
+.EditChoreModalButton {
+  color: black !important;
+}
