@@ -1,8 +1,7 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Grid, Box, Typography, Button } from '@mui/material';
 import '../styles/main.css';
 import CreateChore from '../Modals/CreateChoreModal';
-import AddChore from './AddChore';
 function ToDoList(props) {
   const choreItems = [...props.userChores];
 
@@ -26,14 +25,15 @@ function ToDoList(props) {
       );
       const jsonData = await response.json();
       props.setUserChores(jsonData);
+      console.log(props.userChores);
     } catch (error) {
       console.error(error.message);
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getUserChores(props.currentUser);
-  }, []);
+  }, [props.userChores]);
 
   // const editUserChore = async (id) => {
   //   try {
