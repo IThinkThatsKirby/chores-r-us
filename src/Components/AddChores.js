@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button } from '@mui/material';
 
-function AddChore(props) {
+function AddChores(props) {
   const [formValues, setFormValues] = useState({});
 
   const handleInputChange = (e) => {
@@ -10,18 +10,6 @@ function AddChore(props) {
       ...formValues,
       [name]: value,
     });
-  };
-
-  const getUserChores = async (currentUser) => {
-    try {
-      const response = await fetch(
-        `http://chores-express.herokuapp.com/users/${currentUser.user_id}`
-      );
-      const jsonData = await response.json();
-      props.setUserChores(jsonData);
-    } catch (error) {
-      console.error(error.message);
-    }
   };
 
   const handleSubmit = async (event) => {
@@ -38,7 +26,6 @@ function AddChore(props) {
           user_id: props.currentUser.user_id,
         }),
       });
-      props.setUserChores(getUserChores(props.currentUser));
     } catch (error) {
       console.error(error.message);
     }
@@ -79,4 +66,4 @@ function AddChore(props) {
   );
 }
 
-export default AddChore;
+export default AddChores;
