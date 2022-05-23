@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Grid, Box, Typography, Button } from '@mui/material';
 import '../styles/main.css';
 import CreateChore from '../Modals/CreateChoreModal';
+import EditChoreModal from '../Modals/EditChoreModal';
 function ToDoList(props) {
   const choreItems = [...props.userChores];
 
@@ -71,12 +72,14 @@ function ToDoList(props) {
               className="choreButton"
               variant="contained"
               color="primary"
-              onClick={() => {
-                console.log('Hello world');
-              }}
+              // onClick={() => {
+              // }}
             >
               {' '}
-              Edit Chore{' '}
+              <EditChoreModal
+                chore={chore}
+                currentUser={props.currentUser}
+              />{' '}
             </Button>
             <Button
               className="choreButton"

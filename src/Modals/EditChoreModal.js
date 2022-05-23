@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import AddChore from '../Components/AddChore';
+import EditChore from '../Components/EditChore';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function EditChore() {
+export default function EditChoreModal(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -33,7 +33,7 @@ export default function EditChore() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <AddChore />
+          <EditChore chore={props.chore} currentUser={props.currentUser} />
         </Box>
       </Modal>
     </div>
