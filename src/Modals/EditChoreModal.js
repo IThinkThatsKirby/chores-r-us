@@ -23,7 +23,9 @@ export default function EditChore() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Edit Chore</Button>
+      <Button className="EditChoreModalButton" onClick={handleOpen}>
+        Edit Chore
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

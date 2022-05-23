@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function CreateChore() {
+export default function CreateChore(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -31,7 +31,7 @@ export default function CreateChore() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <AddChore />
+          <AddChore currentUser={props.currentUser} />
         </Box>
       </Modal>
     </div>

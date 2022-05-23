@@ -8,6 +8,7 @@ export default function Chores(props) {
       <ToDoList
         userChores={props.userChores}
         setUserChores={props.setUserChores}
+        currentUser={props.currentUser}
       />
     </div>
   );

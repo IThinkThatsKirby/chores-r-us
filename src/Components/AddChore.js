@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button } from '@mui/material';
 
-function AddChore() {
-  const [formValues, setFormValues] = useState('');
-  console.log(formValues);
+function AddChore(props) {
+  const [formValues, setFormValues] = useState({});
+  //NEED TO HAVE USER ID AS WELL AS CHORE NAME AND DESCRIPTION
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -11,11 +11,27 @@ function AddChore() {
       ...formValues,
       [name]: value,
     });
+    console.log(props);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formValues);
+    try {
+      const chore_name = formValues.choreName;
+      const chore_description = formValues.choreDescription;
+      const response = await fetch('http://localhost:5000/chores', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chore_name: chore_name,
+          chore_description: chore_description,
+          user_id: props.currentUser.user_id,
+        }),
+      });
+      window.location = '/Chores';
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -36,7 +52,7 @@ function AddChore() {
           value={formValues.chore_name}
           onChange={handleInputChange}
         />
-        ,
+
         <TextField
           id="choreDesc-input"
           name="choreDescription"

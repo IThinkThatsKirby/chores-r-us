@@ -7,8 +7,7 @@ import Select from '@mui/material/Select';
 import { useState, useEffect } from 'react';
 
 export default function UserSelect(props) {
-  console.log(props);
-  let [users, setUsers] = useState();
+  let [users, setUsers] = useState(null);
 
   const getUsers = async () => {
     try {

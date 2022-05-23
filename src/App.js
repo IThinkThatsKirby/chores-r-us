@@ -1,8 +1,6 @@
 import './App.css';
-
 import { Routes, Route } from 'react-router-dom';
 import Chores from './Pages/Chores.js';
-import EditChores from './Pages/EditChores';
 import Landing from './Pages/Landing.js';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import NavBar from './Components/NavBar';
@@ -12,10 +10,9 @@ import { useState } from 'react';
 
 function App() {
   //State variables that will need to be used across the app
-  let [users, setUsers] = useState([]);
+  // let [users, setUsers] = useState([]);
   let [currentUser, setCurrentUser] = useState({});
   let [userChores, setUserChores] = useState({});
-  console.log(userChores);
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -66,7 +63,11 @@ function App() {
           <Route
             path="/Chores"
             element={
-              <Chores userChores={userChores} setUserChores={setUserChores} />
+              <Chores
+                userChores={userChores}
+                setUserChores={setUserChores}
+                currentUser={currentUser}
+              />
             }
           />
           <Route path="/Rewards" element={<Rewards />} />

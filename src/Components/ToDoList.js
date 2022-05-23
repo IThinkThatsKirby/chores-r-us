@@ -2,17 +2,9 @@ import React from 'react';
 import { Grid, Box, Typography, Button } from '@mui/material';
 import '../styles/main.css';
 import CreateChore from '../Modals/CreateChoreModal';
-import EditChore from '../Modals/EditChoreModal';
+import AddChore from './AddChore';
 function ToDoList(props) {
   const choreItems = [...props.userChores];
-  // const choreItems = [
-  //   {
-  //     chore_id: 2,
-  //     chore_name: 'Do homework',
-  //     chore_description: null,
-  //     completed: false,
-  //     user_id: null,
-  //     confirmed: false } ]
 
   const deleteUserChore = async (id) => {
     try {
@@ -27,22 +19,22 @@ function ToDoList(props) {
     }
   };
 
-  const editUserChore = async (id) => {
-    try {
-      const editChore = await fetch(`http://localhost:5000/chores/${id}`, {
-        method: 'PUT',
-      });
-      props.setUserChores(
-        props.userChores.filter((chore) => chore.chore_id !== id)
-      );
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
+  // const editUserChore = async (id) => {
+  //   try {
+  //     const editChore = await fetch(`http://localhost:5000/chores/${id}`, {
+  //       method: 'PUT',
+  //     });
+  //     props.setUserChores(
+  //       props.userChores.filter((chore) => chore.chore_id !== id)
+  //     );
+  //   } catch (error) {
+  //     console.error(error.message);
+  //   }
+  // };
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '400px', minWidth: '100%' }}>
-      <CreateChore />
+      <CreateChore currentUser={props.currentUser} />
       <Grid container className="todoListGridContainer">
         {choreItems.map((chore) => (
           <Grid
@@ -64,11 +56,11 @@ function ToDoList(props) {
               variant="contained"
               color="primary"
               onClick={() => {
-                // editUserChore(chore.chore_id);
+                console.log('Hello world');
               }}
             >
               {' '}
-              {<EditChore />}{' '}
+              Edit Chore{' '}
             </Button>
             <Button
               className="choreButton"
