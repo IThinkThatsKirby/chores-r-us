@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button } from '@mui/material';
 
-function AddChores(props) {
-  const [formValues, setFormValues] = useState({});
+function EditChore(props) {
+  console.log(props.chore.chore_id);
+  const [formValues, setFormValues] = useState({
+    choreName: props.chore.chore_name,
+    choreDescription: props.chore.chore_description,
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -15,18 +19,21 @@ function AddChores(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(formValues);
       const chore_name = formValues.choreName;
       const chore_description = formValues.choreDescription;
-      const response = await fetch('http://localhost:5000/chores', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chore_name: chore_name,
-          chore_description: chore_description,
-          user_id: props.currentUser.user_id,
-        }),
-      });
+      const response = await fetch(
+        `http://localhost:5000/chores/${props.chore.chore_id}`,
+        {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chore_name: chore_name,
+            chore_description: chore_description,
+            user_id: props.currentUser.user_id,
+            chore_done: 1,
+          }),
+        }
+      );
     } catch (error) {
       console.error(error.message);
     }
@@ -34,6 +41,7 @@ function AddChores(props) {
 
   return (
     <form onSubmit={handleSubmit}>
+      {console.log(props)}
       <Grid
         container
         spacing={2}
@@ -47,7 +55,7 @@ function AddChores(props) {
           name="choreName"
           label="Chore"
           type="text"
-          value={formValues.chore_name}
+          value={formValues.choreName}
           onChange={handleInputChange}
         />
 
@@ -56,7 +64,7 @@ function AddChores(props) {
           name="choreDescription"
           label="Chore Description"
           type="text"
-          value={formValues.chore_description}
+          value={formValues.choreDescription}
           onChange={handleInputChange}
         />
       </Grid>
@@ -67,4 +75,4 @@ function AddChores(props) {
   );
 }
 
-export default AddChores;
+export default EditChore;
