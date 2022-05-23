@@ -3,7 +3,6 @@ import { Grid, TextField, Button } from '@mui/material';
 
 function AddChore(props) {
   const [formValues, setFormValues] = useState({});
-  //NEED TO HAVE USER ID AS WELL AS CHORE NAME AND DESCRIPTION
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -11,7 +10,18 @@ function AddChore(props) {
       ...formValues,
       [name]: value,
     });
-    console.log(props);
+  };
+
+  const getUserChores = async (currentUser) => {
+    try {
+      const response = await fetch(
+        `http://chores-express.herokuapp.com/users/${currentUser.user_id}`
+      );
+      const jsonData = await response.json();
+      props.setUserChores(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -28,7 +38,7 @@ function AddChore(props) {
           user_id: props.currentUser.user_id,
         }),
       });
-      window.location = '/Chores';
+      props.setUserChores(getUserChores(props.currentUser));
     } catch (error) {
       console.error(error.message);
     }

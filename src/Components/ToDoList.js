@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Grid, Box, Typography, Button } from '@mui/material';
 import '../styles/main.css';
 import CreateChore from '../Modals/CreateChoreModal';
@@ -18,6 +18,22 @@ function ToDoList(props) {
       console.error(error.message);
     }
   };
+
+  const getUserChores = async (currentUser) => {
+    try {
+      const response = await fetch(
+        `http://chores-express.herokuapp.com/users/${currentUser.user_id}`
+      );
+      const jsonData = await response.json();
+      props.setUserChores(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useLayoutEffect(() => {
+    getUserChores(props.currentUser);
+  }, []);
 
   // const editUserChore = async (id) => {
   //   try {
