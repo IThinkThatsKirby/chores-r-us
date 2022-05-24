@@ -4,7 +4,7 @@ import '../styles/main.css';
 import CreateChore from '../Modals/CreateChoreModal';
 import EditChoreModal from '../Modals/EditChoreModal';
 function ToDoList(props) {
-  const choreItems = [...props.userChores];
+  const [choreItems, setChoreItems] = [...props.userChores];
 
   const deleteUserChore = async (id) => {
     try {
@@ -26,32 +26,26 @@ function ToDoList(props) {
       );
       const jsonData = await response.json();
       props.setUserChores(jsonData);
-      console.log(props.userChores);
     } catch (error) {
       console.error(error.message);
     }
   };
 
+  passSetState(newChore){
+    props.setUserChores([...userChores, newItem])
+  }
+
   useEffect(() => {
     getUserChores(props.currentUser);
-  }, [props.userChores]);
-
-  // const editUserChore = async (id) => {
-  //   try {
-  //     const editChore = await fetch(`http://localhost:5000/chores/${id}`, {
-  //       method: 'PUT',
-  //     });
-  //     props.setUserChores(
-  //       props.userChores.filter((chore) => chore.chore_id !== id)
-  //     );
-  //   } catch (error) {
-  //     console.error(error.message);
-  //   }
-  // };
+  }, []);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '400px', minWidth: '100%' }}>
-      <CreateChore currentUser={props.currentUser} />
+      <CreateChore
+        currentUser={props.currentUser}
+        setUserChores={props.setUserChores}
+        userChores={props.userChores}
+      />
       <Grid container className="todoListGridContainer">
         {choreItems.map((chore) => (
           <Grid
@@ -79,6 +73,8 @@ function ToDoList(props) {
               <EditChoreModal
                 chore={chore}
                 currentUser={props.currentUser}
+                setUserChores={props.setUserChores}
+                userChores={props.userChores}
               />{' '}
             </Button>
             <Button

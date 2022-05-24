@@ -15,7 +15,6 @@ function AddChores(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(formValues);
       const chore_name = formValues.choreName;
       const chore_description = formValues.choreDescription;
       const response = await fetch('http://localhost:5000/chores', {
@@ -27,6 +26,8 @@ function AddChores(props) {
           user_id: props.currentUser.user_id,
         }),
       });
+      const jsonData = await response.json();
+      console.log(jsonData.data);
     } catch (error) {
       console.error(error.message);
     }

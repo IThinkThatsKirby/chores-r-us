@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Grid, TextField, Button } from '@mui/material';
 
 function EditChore(props) {
-  console.log(props.chore.chore_id);
   const [formValues, setFormValues] = useState({
     choreName: props.chore.chore_name,
     choreDescription: props.chore.chore_description,
@@ -41,7 +40,6 @@ function EditChore(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {console.log(props)}
       <Grid
         container
         spacing={2}

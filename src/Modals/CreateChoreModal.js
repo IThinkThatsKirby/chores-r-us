@@ -31,7 +31,11 @@ export default function CreateChore(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <AddChore currentUser={props.currentUser} />
+          <AddChore
+            currentUser={props.currentUser}
+            setUserChores={props.setUserChores}
+            userChores={props.userChores}
+          />
         </Box>
       </Modal>
     </div>

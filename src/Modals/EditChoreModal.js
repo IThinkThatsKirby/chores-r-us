@@ -33,7 +33,12 @@ export default function EditChoreModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <EditChore chore={props.chore} currentUser={props.currentUser} />
+          <EditChore
+            chore={props.chore}
+            currentUser={props.currentUser}
+            setUserChores={props.setUserChores}
+            userChores={props.userChores}
+          />
         </Box>
       </Modal>
     </div>
